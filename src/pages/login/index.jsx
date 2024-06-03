@@ -13,7 +13,7 @@ const Login = () => {
       >
         <Col className="img-section p-1">
           <img
-            src="src\assets\images\header.jpg"
+            src="src/assets/images/header.jpg"
             alt="car image"
             className="w-100 h-100 object-fit-cover overflow-hidden  rounded-5"
           />
