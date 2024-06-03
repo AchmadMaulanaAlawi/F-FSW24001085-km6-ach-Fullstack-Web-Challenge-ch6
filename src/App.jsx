@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css" // apply bootstrap for styling
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { Provider } from "react-redux"
+import { GoogleOAuthProvider } from "@react-oauth/google"
 
 import NavbarComponent from "./components/NavbarComponent"
 import Login from "./pages/login"
@@ -31,10 +32,7 @@ const router = createBrowserRouter([
     path: "/login",
     element: (
       <Unprotected>
-        <NavbarComponent />
-        <Container className="mt-5">
-          <Login />
-        </Container>
+        <Login />
       </Unprotected>
     ),
   },
@@ -76,9 +74,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />
-
-      <ToastContainer theme="colored" />
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <RouterProvider router={router} />
+        <ToastContainer theme="colored" />
+      </GoogleOAuthProvider>
     </Provider>
   )
 }

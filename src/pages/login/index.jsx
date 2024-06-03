@@ -5,19 +5,27 @@ import Card from "react-bootstrap/Card"
 
 const Login = () => {
   return (
-    <Row>
-      <Col
-        md={6}
-        className="offset-md-3"
+    <>
+      <Row
+        className="w-100 vh-100 w-100 m-0"
+        xs={1}
+        md={2}
       >
-        <Card>
-          <Card.Header>Login</Card.Header>
-          <Card.Body>
+        <Col className="img-section p-1">
+          <img
+            src="src\assets\images\header.jpg"
+            alt="car image"
+            className="w-100 h-100 object-fit-cover overflow-hidden  rounded-5"
+          />
+        </Col>
+        <Col className="login-section d-flex flex-column justify-content-center align-items-center">
+          <div className="w-75">
+            <h1 className="fw-semibold mb-5">Login</h1>
             <LoginComponent />
-          </Card.Body>
-        </Card>
-      </Col>
-    </Row>
+          </div>
+        </Col>
+      </Row>
+    </>
   )
 }
 

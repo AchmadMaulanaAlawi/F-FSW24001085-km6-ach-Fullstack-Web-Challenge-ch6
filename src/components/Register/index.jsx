@@ -5,6 +5,7 @@ import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { register } from "../../redux/actions/auth"
+import GoogleAuth from "../GoogleAuth"
 
 function Register() {
   const navigate = useNavigate()
@@ -44,7 +45,6 @@ function Register() {
           required
         />
       </Form.Group>
-
       <Form.Group
         className="mb-3"
         controlId="email"
@@ -61,7 +61,6 @@ function Register() {
           We will never share your email with anyone else.
         </Form.Text>
       </Form.Group>
-
       <Form.Group
         className="mb-3"
         controlId="password"
@@ -75,7 +74,6 @@ function Register() {
           required
         />
       </Form.Group>
-
       <Form.Group
         className="mb-3"
         controlId="confirmPassword"
@@ -89,7 +87,6 @@ function Register() {
           required
         />
       </Form.Group>
-
       <Form.Group
         controlId="photo"
         className="mb-3"
@@ -100,7 +97,6 @@ function Register() {
           onChange={(e) => setPhoto(e.target.files[0])}
         />
       </Form.Group>
-
       <Button
         variant="primary"
         type="submit"
@@ -108,6 +104,8 @@ function Register() {
       >
         {isLoading ? "Processing..." : "Register"}
       </Button>
+      <span className="mx-2">or</span>
+      <GoogleAuth>Register with Google</GoogleAuth>
     </Form>
   )
 }
