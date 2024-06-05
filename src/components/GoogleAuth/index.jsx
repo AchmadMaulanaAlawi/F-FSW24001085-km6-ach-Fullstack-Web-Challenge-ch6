@@ -1,10 +1,15 @@
-import { useGoogleLogin } from "@react-oauth/google"
-import { Button, Row, Col } from "react-bootstrap"
+import { useGoogleLogin } from "@react-oauth/google";
+import { Button, Row, Col } from "react-bootstrap";
 
 function GoogleAuth({ children }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => console.log(tokenResponse),
-  })
+    onSuccess: (codeResponse) =>
+      dispatch(loginWithGoogle(navigate, codeResponse?.access_token)),
+  });
+
   return (
     <Button
       variant="outline-secondary"
@@ -21,7 +26,7 @@ function GoogleAuth({ children }) {
         {children}
       </div>
     </Button>
-  )
+  );
 }
 
-export default GoogleAuth
+export default GoogleAuth;

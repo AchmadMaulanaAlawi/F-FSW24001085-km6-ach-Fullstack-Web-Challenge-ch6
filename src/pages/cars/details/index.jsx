@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react"
-import { Row, Col, Button, Breadcrumb } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { useNavigate, useParams } from "react-router-dom"
-import { getCar } from "../../../redux/actions/cars"
+import { useEffect, useState } from "react";
+import { Row, Col, Button, Breadcrumb } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { getCar } from "../../../redux/actions/cars";
 
-import ModalEdit from "../../../components/Modal/EditCar"
-import ModalDelete from "../../../components/Modal/DeleteCar"
+import ModalEdit from "../../../components/Modal/EditCar";
+import ModalDelete from "../../../components/Modal/DeleteCar";
 
 const Profile = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const { id } = useParams()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { id } = useParams();
 
-  const { car } = useSelector((state) => state.cars)
-  const { user } = useSelector((state) => state.auth)
+  const { car } = useSelector((state) => state.cars);
+  const { user } = useSelector((state) => state.auth);
 
-  const [modalEditShow, setModalEditShow] = useState(false)
-  const [modalDeleteShow, setModalDeleteShow] = useState(false)
+  const [modalEditShow, setModalEditShow] = useState(false);
+  const [modalDeleteShow, setModalDeleteShow] = useState(false);
 
   useEffect(() => {
     // get car details by params id
-    dispatch(getCar(navigate, id))
-  }, [dispatch, id, navigate])
+    dispatch(getCar(navigate, id));
+  }, [dispatch, id, navigate]);
 
   return (
     <>
@@ -40,17 +40,9 @@ const Profile = () => {
         <Breadcrumb.Item onClick={() => navigate("/")}>Home</Breadcrumb.Item>
         <Breadcrumb.Item active>Car Details</Breadcrumb.Item>
       </Breadcrumb>
-      <Row
-        md={2}
-        xs={1}
-      >
+      <Row md={2} xs={1}>
         <Col className="detail-image d-flex justify-center align-items-center">
-          <img
-            className="w-100"
-            src={car?.image}
-            alt="car image"
-            srcSet=""
-          />
+          <img className="w-100" src={car?.image} alt="car image" srcSet="" />
         </Col>
         <Col className="">
           <div className="mt-4">{car?.manufacture}</div>
@@ -136,7 +128,7 @@ const Profile = () => {
                   width="18"
                   height="18"
                   fill="currentColor"
-                  class="bi bi-trash-fill"
+                  className="bi bi-trash-fill"
                   viewBox="0 0 16 19"
                 >
                   <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
@@ -147,7 +139,7 @@ const Profile = () => {
         </Col>
       </Row>
     </>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
