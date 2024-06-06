@@ -1,20 +1,20 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import Container from "react-bootstrap/Container"
-import "bootstrap/dist/css/bootstrap.min.css" // apply bootstrap for styling
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
-import { Provider } from "react-redux"
-import { GoogleOAuthProvider } from "@react-oauth/google"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import "bootstrap/dist/css/bootstrap.min.css"; // apply bootstrap for styling
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
-import NavbarComponent from "./components/NavbarComponent"
-import Login from "./pages/login"
-import Register from "./pages/register"
-import Home from "./pages/home"
-import Profile from "./pages/profile"
-import Protected from "./components/Protected"
-import Unprotected from "./components/Unprotected"
-import store from "./redux/store"
-import CarDetail from "./pages/cars/details"
+import NavbarComponent from "./components/NavbarComponent";
+import Login from "./pages/login";
+import Register from "./pages/register";
+import Home from "./pages/home";
+import Profile from "./pages/profile";
+import Protected from "./components/Protected";
+import Unprotected from "./components/Unprotected";
+import store from "./redux/store";
+import CarDetail from "./pages/cars/details";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +40,6 @@ const router = createBrowserRouter([
     path: "/register",
     element: (
       <Unprotected>
-        <NavbarComponent />
         <Container className="mt-5">
           <Register />
         </Container>
@@ -50,7 +49,7 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: (
-      <Protected roles={["admin"]}>
+      <Protected>
         <NavbarComponent />
         <Container className="mt-5">
           <Profile />
@@ -69,7 +68,7 @@ const router = createBrowserRouter([
       </Protected>
     ),
   },
-])
+]);
 
 function App() {
   return (
@@ -79,7 +78,7 @@ function App() {
         <ToastContainer theme="colored" />
       </GoogleOAuthProvider>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;
