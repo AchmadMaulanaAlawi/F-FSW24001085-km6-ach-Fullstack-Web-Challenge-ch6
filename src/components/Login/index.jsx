@@ -30,7 +30,6 @@ function Login() {
           <Form.Control
             type="email"
             value={email}
-            placeholder="admin email: alawi@gmail.com"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -40,7 +39,6 @@ function Login() {
           <Form.Control
             type="password"
             value={password}
-            placeholder="admin password: 123"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
