@@ -103,7 +103,10 @@ function Register() {
       </Form>
       <p className="mt-3 text-secondary">
         Already have an account?{" "}
-        <a className="link-underline link-underline-opacity-0" href="./login">
+        <a
+          className="link-underline link-underline-opacity-0"
+          href="https://f-fsw-24001085-km6-ach-fullstack-web-challenge-ch6.vercel.app/register"
+        >
           Login now.
         </a>
       </p>
