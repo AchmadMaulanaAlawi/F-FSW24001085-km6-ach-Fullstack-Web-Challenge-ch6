@@ -1,30 +1,27 @@
-import { useEffect, useState } from "react"
-import { Button, Row } from "react-bootstrap"
-import { useSelector, useDispatch } from "react-redux"
-import { getCars } from "../../redux/actions/cars"
-import CarCard from "../../components/Card/Car"
-import ModalAdd from "../../components/Modal/AddCar"
+import { useEffect, useState } from "react";
+import { Button, Row } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { getCars } from "../../redux/actions/cars";
+import CarCard from "../../components/Card/Car";
+import ModalAdd from "../../components/Modal/AddCar";
 
 const Home = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.auth)
-  const { cars } = useSelector((state) => state.cars)
+  const { user } = useSelector((state) => state.auth);
+  const { cars } = useSelector((state) => state.cars);
 
-  const [modalAddShow, setModalAddShow] = useState(false)
+  const [modalAddShow, setModalAddShow] = useState(false);
 
   useEffect(() => {
     if (user) {
-      dispatch(getCars())
+      dispatch(getCars());
     }
-  }, [dispatch, cars])
+  }, [dispatch, cars]);
 
   return (
     <>
-      <ModalAdd
-        modalShow={modalAddShow}
-        setModalShow={setModalAddShow}
-      />
+      <ModalAdd modalShow={modalAddShow} setModalShow={setModalAddShow} />
       {user?.role === "admin" && (
         <Button
           onClick={() => setModalAddShow(true)}
@@ -56,22 +53,12 @@ const Home = () => {
           </svg>
         </Button>
       )}
-      <Row
-        xs={1}
-        sm={2}
-        md={3}
-        className="g-4"
-      >
+      <Row xs={1} sm={2} md={3} className="g-4">
         {cars.length > 0 &&
-          cars.map((car) => (
-            <CarCard
-              key={car?.id}
-              car={car}
-            />
-          ))}
+          cars.map((car) => <CarCard key={car?.id} car={car} />)}
       </Row>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

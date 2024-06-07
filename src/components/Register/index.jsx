@@ -32,6 +32,7 @@ function Register() {
 
   return (
     <>
+      <h1 className="fw-semibold mb-5">Register</h1>
       <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name *</Form.Label>
@@ -80,6 +81,15 @@ function Register() {
             onChange={(e) => setPhoto(e.target.files[0])}
           />
         </Form.Group>
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">
+            Role
+          </label>
+          <select class="form-select" id="inputGroupSelect01">
+            <option value="1">Admin</option>
+            <option value="2">User</option>
+          </select>
+        </div>
         <Button
           className="w-100"
           variant="primary"

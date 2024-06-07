@@ -22,7 +22,7 @@ function Login() {
   };
 
   return (
-    <div className="w-md-50">
+    <>
       <h1 className="fw-semibold mb-5">Login</h1>
       <Form onSubmit={onSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -54,7 +54,13 @@ function Login() {
         <span className="my-3 d-block text-center text-secondary">OR</span>
         <GoogleLogin text="Login with Google" />
       </Form>
-    </div>
+      <p className="mt-3 text-secondary">
+        Don't have an account?{" "}
+        <a className="link-underline link-underline-opacity-0" href="register">
+          Register now.
+        </a>
+      </p>
+    </>
   );
 }
 
