@@ -56,7 +56,10 @@ function Login() {
       </Form>
       <p className="mt-3 text-secondary">
         Don't have an account?{" "}
-        <a className="link-underline link-underline-opacity-0" href="register">
+        <a
+          className="link-underline link-underline-opacity-0"
+          href="./register"
+        >
           Register now.
         </a>
       </p>

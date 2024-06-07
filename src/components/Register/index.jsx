@@ -81,11 +81,11 @@ function Register() {
             onChange={(e) => setPhoto(e.target.files[0])}
           />
         </Form.Group>
-        <div class="input-group mb-3">
-          <label class="input-group-text" for="inputGroupSelect01">
+        <div className="input-group mb-3">
+          <label className="input-group-text" htmlFor="inputGroupSelect01">
             Role
           </label>
-          <select class="form-select" id="inputGroupSelect01">
+          <select className="form-select" id="inputGroupSelect01">
             <option value="1">Admin</option>
             <option value="2">User</option>
           </select>
@@ -103,7 +103,7 @@ function Register() {
       </Form>
       <p className="mt-3 text-secondary">
         Already have an account?{" "}
-        <a className="link-underline link-underline-opacity-0" href="login">
+        <a className="link-underline link-underline-opacity-0" href="./login">
           Login now.
         </a>
       </p>
